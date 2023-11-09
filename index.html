@@ -6,19 +6,27 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
+        
         <h1>Etch-A-Sketch</h1>
 
+        <div class="options-container">
             <div class="slider-container">
             <div class="value-container">
                 <span>Grid Size: </span>
-                <span id="value">16</span>
+                <span id="value">0 x 0</span>
             </div>
-            <input type="range" min="0" max="32" value="16" class="slider" id="myRange">
+            <input type="range" min="0" max="32" value="0" class="slider" id="myRange">
         </div>
 
+        <div class="buttons-container">
+            <button class="deafult-color generic-button">Deafult Color</button>
+            <button class="rainbow-color generic-button">Rainbow Color</button>
+            <button class="clear-button generic-button">Clear</button>
+        </div>
         </div>
         
         <div class="container" id="grid"></div> 
+        
     </body>
    <script src="script.js"></script>
 </html>

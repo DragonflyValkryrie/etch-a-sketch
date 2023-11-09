@@ -1,4 +1,4 @@
-let gridSize = 20;
+let gridSize = 0;
 
 var slider = document.getElementById("myRange");
 const container = document.querySelector(".container");
@@ -24,6 +24,28 @@ slider.oninput = function() {
     changeGridSize(gridSize);
 };
 
+function setCurrentSize(newSize) {
+    currentSize = newSize
+  };
+
+function changeGridSize(size) {
+    setCurrentSize(size)
+    updateGridSizeValue(size)
+    reloadGrid()
+};
+
+function clearGrid() {
+    grid.innerHTML = ''
+};
+
+function updateGridSizeValue(size) {
+    gridSizeValue.innerHTML = `${size} x ${size}`
+};
+
+function reloadGrid() {
+    clearGrid()
+    createGrid(currentSize)
+};
 
 function createGrid(size) {
 
