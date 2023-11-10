@@ -1,9 +1,14 @@
 let gridSize = 0;
+let selectedColor = "default";
 
 var slider = document.getElementById("myRange");
 const container = document.querySelector(".container");
 const grid = document.getElementById("grid");
 const gridSizeValue = document.getElementById("value");
+
+const rainbowButton = document.querySelector(".rainbow-color");
+const deafultButton = document.querySelector(".deafult-color");
+const clearButton = document.querySelector(".clear-button");
 
 slider.oninput = function() {
     var value = (this.value - this.min) / (this.max - this.min) * 85;
@@ -25,39 +30,40 @@ slider.oninput = function() {
 };
 
 function setCurrentSize(newSize) {
-    currentSize = newSize
+    currentSize = newSize;
   };
 
 function changeGridSize(size) {
-    setCurrentSize(size)
-    updateGridSizeValue(size)
-    reloadGrid()
+    setCurrentSize(size);
+    updateGridSizeValue(size);
+    reloadGrid();
 };
 
 function clearGrid() {
-    grid.innerHTML = ''
+    grid.innerHTML = '';
 };
 
 function updateGridSizeValue(size) {
-    gridSizeValue.innerHTML = `${size} x ${size}`
+    gridSizeValue.innerHTML = `${size} x ${size}`;
 };
 
 function reloadGrid() {
-    clearGrid()
-    createGrid(currentSize)
+    clearGrid();
+    createGrid(currentSize);
 };
 
 function createGrid(size) {
 
-    container.style.gridTemplateColumns = `repeat(${size}, 1fr)`
-    container.style.gridTemplateRows = `repeat(${size}, 1fr)`
+    container.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+    container.style.gridTemplateRows = `repeat(${size}, 1fr)`;
+
 
     for (let i = 0; i < size * size; i++) {
         const square = document.createElement("div");
         square.classList.add("square");
 
         square.addEventListener("mouseenter", function () {
-            square.style.background = defaultColor();
+            square.style.background = colorPicked();
         });
 
         container.appendChild(square);
@@ -66,6 +72,25 @@ function createGrid(size) {
 
 createGrid(gridSize);
 
+rainbowButton.addEventListener("click", () => {
+    selectedColor = "rainbow";
+});
+
+deafultButton.addEventListener("click", () => {
+    selectedColor = "default";
+});
+
+clearButton.addEventListener("click", () => {
+    reloadGrid();
+});
+
+function colorPicked() {
+    if (selectedColor === 'rainbow') {
+        return rainbowColor();
+    } else {
+        return defaultColor();
+    }
+};
 
 function rainbowColor() {
     const letters ="0123456789ABCDEF";

@@ -1,34 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Etch-A-Sketch!</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <div class="header">
-            <h1>Etch-A-Sketch</h1>
-        </div>
-
+<head>
+    <meta charset="UTF-8">
+    <title>Etch-A-Sketch!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Etch-A-Sketch</h1>
+    </div>
+    <div class="content-container">
         <div class="options-container">
             <div class="slider-container">
-            <div class="value-container">
-                <span>Grid Size: </span>
-                <span id="value">0 x 0</span>
+                <div class="value-container">
+                    <span>Grid Size: </span>
+                    <span id="value">0 x 0</span>
+                </div>
+                <input type="range" min="0" max="32" value="0" class="slider" id="myRange">
             </div>
-            <input type="range" min="0" max="32" value="0" class="slider" id="myRange">
+            <div class="buttons-container">
+                <button class="deafult-color generic-button">Deafult Color</button>
+                <button class="rainbow-color generic-button">Rainbow Color</button>
+                <button class="clear-button generic-button">Clear</button>
+            </div>
         </div>
-
-        <div class="buttons-container">
-            <button class="deafult-color generic-button">Deafult Color</button>
-            <button class="rainbow-color generic-button">Rainbow Color</button>
-            <button class="clear-button generic-button">Clear</button>
-        </div>
-        </div>
-        
-        <div class="container" id="grid"></div> 
-        
-        <div class="footer">DragonflyValkyrie's Project! 2023</div>
-    </body>
-   <script src="script.js"></script>
+        <div class="container" id="grid"></div>
+    </div>
+    <div class="footer">DragonflyValkyrie's Project! 2023</div>
+    <script src="script.js"></script>
+</body>
 </html>
